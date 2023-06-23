@@ -34,6 +34,7 @@ To build a Debian ext4 root filesystem image for arm64:
 
     docker build -t sd-images https://github.com/johang/sd-card-images.git
     mkdir -p /tmp/sd-images
-    docker run --rm -v /tmp/sd-images:/artifacts sd-images build-debian debian arm64 buster
+    docker run --rm -v `pwd`:/debimg -v /tmp/sd-images:/artifacts sd-images \
+      build-debian debian arm64 buster
 
 The image will end up in /tmp/sd-images on the host.

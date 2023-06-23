@@ -50,6 +50,8 @@ mkdir ../amlogic-boot-fip-output
 ./build-fip.sh "${BOARD}" ../u-boot/u-boot.bin ../amlogic-boot-fip-output
 cd ..
 
+cp amlogic-boot-fip-output/u-boot.bin.sd.bin ${ARTIFACTS_DIR:-/artifacts}
+
 # Copy U-Boot but don't overwrite the partition table
 dd if=amlogic-boot-fip-output/u-boot.bin.sd.bin of=tmp.img conv=notrunc bs=1 count=446
 dd if=amlogic-boot-fip-output/u-boot.bin.sd.bin of=tmp.img conv=notrunc bs=512 skip=1 seek=1
