@@ -24,7 +24,8 @@ To build a boot image for Raspberry Pi 3 B:
 
     docker build -t sd-images https://github.com/johang/sd-card-images.git
     mkdir -p /tmp/sd-images
-    docker run --rm -v /tmp/sd-images:/artifacts sd-images build-boot raspberrypi_3b bcm2837 rpi_3_defconfig aarch64-linux-gnu
+    docker run --rm -v `pwd`:/debimg -v /tmp/sd-images:/artifacts sd-images \
+      build-boot raspberrypi_3b bcm2837 rpi_3_defconfig aarch64-linux-gnu
 
 The image will end up in /tmp/sd-images on the host.
 
@@ -38,3 +39,13 @@ To build a Debian ext4 root filesystem image for arm64:
       build-debian debian arm64 buster
 
 The image will end up in /tmp/sd-images on the host.
+
+
+### BananaPi M5
+
+    docker run --rm -v /tmp/sd-images:/artifacts \
+      -v `pwd`:/debimg \
+      -e U_BOOT_PATCHES_DIR=/debimg/patches/u-boot/bananapi_m5 sd-images \
+      build-boot meson-sm1-bananapi-m5 meson-sm1 bananapi-m5_defconfig aarch64-linux-gnu
+    
+    

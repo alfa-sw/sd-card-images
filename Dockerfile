@@ -52,5 +52,5 @@ RUN wget -q "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -O "
     ./aws/install && \
     rm -rf aws
 ENV PATH="/debimg/scripts:${PATH}"
-COPY . /debimg
+RUN mkdir /debimg
 WORKDIR /debimg
