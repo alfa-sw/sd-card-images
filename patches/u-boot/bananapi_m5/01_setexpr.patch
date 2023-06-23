@@ -1,0 +1,11 @@
+diff --git a/configs/bananapi-m5_defconfig b/configs/bananapi-m5_defconfig
+index 696d2fcc..9d0ae63d 100644
+--- a/configs/bananapi-m5_defconfig
++++ b/configs/bananapi-m5_defconfig
+@@ -75,3 +75,6 @@ CONFIG_VIDEO_BMP_RLE8=y
+ CONFIG_BMP_16BPP=y
+ CONFIG_BMP_24BPP=y
+ CONFIG_BMP_32BPP=y
++CONFIG_BMP_32BPP=y
++CONFIG_CMD_SETEXPR=y
++CONFIG_CMD_SETEXPR_FMT=y
